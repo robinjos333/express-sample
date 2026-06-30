@@ -1,0 +1,11 @@
+const assert = require("assert");
+const request = require("supertest");
+
+const app = require("../app");
+
+describe("the express app", () => {
+  it("handles a get request to /api", async () => {
+    const response = await request(app).get("/api");
+    assert(response.body.hi === "there");
+  });
+});
